@@ -1,0 +1,133 @@
+:root {
+  --bg-start: #0ea5ea;
+  --bg-end: #7367f0;
+  --card-bg: rgba(255, 255, 255, 0.9);
+  --text: #0f172a;
+  --muted: #475569;
+  --primary: #6d28d9;
+  --primary-700: #5b21b6;
+  --danger: #dc2626;
+  --border: #e2e8f0;
+  --brand: #111827;
+  --nav-item: rgba(255,255,255,.92);
+  --nav-active: #111827;
+  --navbar-bg: rgba(255,255,255,0.65);
+  --navbar-border: rgba(0,0,0,0.08);
+}
+
+.dark {
+  --bg-start: #0b1220;
+  --bg-end: #151a2d;
+  --card-bg: rgba(20, 23, 39, 0.85);
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --primary: #8b5cf6;
+  --primary-700: #7c3aed;
+  --danger: #f87171;
+  --border: #30374f;
+  --brand: #ffffff;
+  --nav-item: rgba(255,255,255,.88);
+  --nav-active: #111827;
+  --navbar-bg: rgba(17, 24, 39, 0.65);
+  --navbar-border: rgba(255,255,255,0.12);
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  color: var(--text);
+  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%) fixed;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  color: white;
+  /* make navbar background transparent (remove box look) */
+  background: transparent;
+  padding: 12px 16px;
+  border: none;
+  box-shadow: none;
+}
+.navbar-title { letter-spacing: .4px; text-shadow: 0 2px 12px rgba(0,0,0,.18); color: var(--brand); }
+.navbar nav { display: flex; gap: 10px; /* remove inner pill background */ background: transparent; padding: 0; border-radius: 0; }
+.nav-link { color: var(--nav-item); text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; transition: background .2s ease, transform .08s ease, color .2s ease; }
+.nav-link:hover { transform: translateY(-1px) scale(1.02); background: rgba(255,255,255,.16); color: #ffffff; }
+.nav-link.active { background: #ffffff; color: var(--nav-active); box-shadow: 0 6px 16px rgba(0,0,0,.15); }
+.navbar .theme-toggle { margin-left: auto; }
+
+.card {
+  background: var(--card-bg);
+  backdrop-filter: saturate(180%) blur(6px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  animation: fadeUp .25s ease-out;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+input, select, button {
+  font: inherit;
+}
+
+input, select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #fff;
+}
+
+button {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  cursor: pointer;
+  transition: transform .08s ease, background .2s ease, box-shadow .2s ease;
+  box-shadow: 0 6px 16px rgba(109,40,217,.22);
+}
+button:hover { background: var(--primary-700); transform: translateY(-1px) scale(1.02); }
+button:active { transform: translateY(0) scale(0.98); box-shadow: 0 3px 10px rgba(109,40,217,.18); }
+button[disabled] { opacity: .6; cursor: not-allowed; }
+
+.btn-outline { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+.btn-outline:hover { background: rgba(109,40,217,.08); }
+
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 12px; overflow: hidden; }
+th, td { padding: 12px; }
+thead { background: #f8fafc; color: #0f172a; }
+tbody tr + tr { border-top: 1px solid var(--border); }
+tbody tr { transition: background .2s ease; }
+tbody tr:hover { background: #f8fafc; }
+
+.title { margin: 0 0 12px; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); font-weight: 600; }
+
+.badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+.badge.busy { background: #fee2e2; color: #991b1b; }
+.badge.swappable { background: #dcfce7; color: #166534; }
+.badge.pending { background: #fef9c3; color: #854d0e; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+

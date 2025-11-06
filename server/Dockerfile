@@ -1,0 +1,10 @@
+FROM node:20-alpine
+WORKDIR /app
+COPY package.json package-lock.json* ./
+RUN npm ci || npm install
+COPY src ./src
+ENV PORT=4000
+EXPOSE 4000
+CMD ["npm", "start"]
+
+
