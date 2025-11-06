@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+**/node_modules/
+
+# Logs
+logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+
+# Build outputs
+dist/
+build/
+
+# SQLite DB files
+*.db
+*.sqlite
+slotswapper.db
+slotswapper.db-shm
+slotswapper.db-wal
+
+# Optional: lock files (uncomment if you want to ignore them)
+# package-lock.json
+# yarn.lock
